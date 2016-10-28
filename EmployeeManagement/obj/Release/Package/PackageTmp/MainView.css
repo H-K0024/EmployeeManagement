@@ -1,0 +1,70 @@
+﻿.Panel {
+    border-color: black;
+    border-style: solid;
+}
+
+.Number_Text{
+    margin-left:20px;
+}
+
+.Name_Text{
+    margin-left:36px;
+}
+
+.Brithday_Text{
+    margin-left:20px;
+}
+
+.Join_Text{
+    margin-left:4px;
+}
+
+.Skill_Text{
+    margin-left:6px;
+}
+
+.Skill_left{
+     margin-left:89px;
+}
+
+.Freezing{
+    position:relative;
+    top:expression(this.offsetParent.scrollTop);
+    z-index:10;
+}
+
+.Null_Label{
+    position:absolute;
+    left:230px;
+}
+
+#Main_Panel{
+    background-color:lightgreen;
+}
+
+#Sub_Panel{
+    position:relative;
+    background-color:palegreen;
+    top:-658px;
+    left:903px;
+}
+
+#Del_Number_Text {
+    background-color: white;
+    }
+
+#Add_Brithday_Null{
+    top:57px;
+}
+
+#Add_Join_Null{
+    top:78px;
+}
+
+.hide  {
+        visibility:hidden;
+    }
+
+#Del_Retirement_Text{
+    margin-left:5px;
+}
