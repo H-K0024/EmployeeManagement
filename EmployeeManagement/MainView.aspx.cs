@@ -41,6 +41,7 @@ namespace EmployeeManagement
         public const String ERROR_TEXT = "※入力内容に誤りがあります";
         public const String DATE_ERROR = "※日付を入力してください";
         public const String FUTURE_ERROR = "※未来は入力出来ません";
+        public const String WRONG_ERROR = "※不適切な日付です";
         public const String PAST_BRITHDAY_ERROR = "※1900/01/01から入力可";
         public const String PAST_JOIN_ERROR = "※2005/04/01から入力可";
         public const String MIN_BRITHDAY_DATE = "1900/01/01";
@@ -277,6 +278,8 @@ namespace EmployeeManagement
                 #region
                 //ID初期化
                 number = EMP_ID;
+
+                name = Add_Name_Text.Text;
                 
                 brithday = DateTime.Parse(Add_Brithday_Text.Text);
 
@@ -356,30 +359,22 @@ namespace EmployeeManagement
 
                 //削除項目
                 Del_Number_Text.Text = "";
-
                 #endregion
-                //入力された値の整合性チェック
+                //生年月日
                 #region
                 //生年月日が入力されているか？
-                if (DateTime.TryParse(Up_Brithday_Text.Text, out dt) == false)
+                if(Up_Brithday_Text.Text == null || Up_Brithday_Text.Text == "")
+                {
+                    //未入力
+                    error_flg = false;
+                }
+                else if (DateTime.TryParse(Up_Brithday_Text.Text, out dt) == false)
                 {
                     //入力された生年月日が日付ではなかった時
                     Up_Brithday_Error.Text = DATE_ERROR;
                     error_flg = true;
                 }
-
-                //入社年月日が入力されているか？
-                if (DateTime.TryParse(Up_Join_Text.Text, out dt) == false)
-                {
-                    //入力された生年月日が日付ではなかった時
-                    Up_Join_Error.Text = DATE_ERROR;
-                    error_flg = true;
-                }
-                #endregion
-                //閾値のチェック
-                #region
-                //生年月日
-                if (DateTime.Parse(Up_Brithday_Text.Text) > DateTime.Now)
+                else if (DateTime.Parse(Up_Brithday_Text.Text) > DateTime.Now)
                 {
                     //未来を入力していた場合
                     Up_Brithday_Error.Text = FUTURE_ERROR;
@@ -391,9 +386,22 @@ namespace EmployeeManagement
                     Up_Brithday_Error.Text = PAST_BRITHDAY_ERROR;
                     error_flg = true;
                 }
-
+                #endregion
                 //入社年月日
-               if (DateTime.Parse(Up_Join_Text.Text) < DateTime.Parse(MIN_JOIN_DATE))
+                #region
+                //入社年月日が入力されているか
+                if (Up_Join_Text.Text == null || Up_Join_Text.Text == "")
+                {
+                    //未入力
+                    error_flg = false;
+                }
+                else if (DateTime.TryParse(Up_Join_Text.Text, out dt) == false)
+                {
+                    //入力された入社年月日が日付ではなかった時
+                    Up_Join_Error.Text = DATE_ERROR;
+                    error_flg = true;
+                }
+                else if (DateTime.Parse(Up_Join_Text.Text) < DateTime.Parse(MIN_JOIN_DATE))
                 {
                     //過去の閾値を下回ったとき
                     Up_Join_Error.Text = PAST_JOIN_ERROR;
@@ -541,6 +549,10 @@ namespace EmployeeManagement
                 #endregion
                 //入力された値の整合性チェック
                 #region
+                //生年月日取得
+                select_hash = (Hashtable)ViewState["select_hash"];
+                brithday = (DateTime)select_hash["BIRTHDAY"];
+
                 //退職年月日が正常に入力されているか？
                 if (Del_Retirement_Text.Text == null || Del_Retirement_Text.Text == "")
                 {
@@ -555,10 +567,14 @@ namespace EmployeeManagement
                     error_flg = true;
                 }
                 //閾値のチェック
-                else if (DateTime.Parse(Del_Retirement_Text.Text) < DateTime.Parse(MIN_BRITHDAY_DATE))
+                else if (DateTime.Parse(Del_Retirement_Text.Text) < DateTime.Parse(MIN_JOIN_DATE))
                 {
                     //過去の閾値を下回ったとき
-                    Del_Retirement_Error.Text = PAST_BRITHDAY_ERROR;
+                    Del_Retirement_Error.Text = PAST_JOIN_ERROR;
+                    error_flg = true;
+                }else if(DateTime.Parse(Del_Retirement_Text.Text) < brithday){
+                    //生年月日を下回ったとき
+                    Del_Retirement_Error.Text = WRONG_ERROR;
                     error_flg = true;
                 }
 
@@ -630,8 +646,8 @@ namespace EmployeeManagement
             select_hash.Add("NUMBER", Emp_Grid.SelectedRow.Cells[1].Text);
             select_hash.Add("NAME", Emp_Grid.SelectedRow.Cells[2].Text);
             select_hash.Add("AGE", Emp_Grid.SelectedRow.Cells[3].Text);
-            select_hash.Add("BIRTHDAY", Emp_Grid.SelectedRow.Cells[4].Text);
-            select_hash.Add("JOIN", Emp_Grid.SelectedRow.Cells[5].Text);
+            select_hash.Add("BIRTHDAY", DateTime.Parse(Emp_Grid.SelectedRow.Cells[4].Text));
+            select_hash.Add("JOIN", DateTime.Parse(Emp_Grid.SelectedRow.Cells[5].Text));
             select_hash.Add("CONTINUE", Emp_Grid.SelectedRow.Cells[6].Text);
             select_hash.Add("SKILL", Emp_Grid.SelectedRow.Cells[8].Text);
             select_hash.Add("SKILL_2nd", Emp_Grid.SelectedRow.Cells[9].Text);
@@ -665,14 +681,23 @@ namespace EmployeeManagement
 
             Emp_Grid.SelectedIndex = -1;
 
-            //更新情報初期化
+            //入力情報初期化
             #region
+            Add_Name_Text.Text = "";
+            Add_Brithday_Text.Text = "";
+            Add_Join_Text.Text = "";
+            Add_Skill_Text.Text = "";
+            Add_Skill_Text2.Text = "";
+            Add_Skill_Text3.Text = "";
+
             Up_Name_Text.Text = "";
             Up_Brithday_Text.Text = "";
             Up_Join_Text.Text = "";
             Up_Skill_Text.Text = "";
             Up_Skill_Text2.Text = "";
             Up_Skill_Text3.Text = "";
+
+            Del_Retirement_Text.Text = "";
             #endregion
 
             //表示内容判定
