@@ -80,18 +80,20 @@
                     <asp:Label ID="Add_Name_Error" runat="server" ForeColor="Red"></asp:Label>
                     <br />
                     <asp:Label ID="Add_Brithday_Label" runat="server"></asp:Label>
-                    <asp:TextBox ID="Add_Brithday_Text" CssClass="Brithday_Text" runat="server" Width="130px"></asp:TextBox>
+                    <asp:TextBox ID="Add_Brithday_Text" CssClass="Brithday_Text" onkeyDown="return checkTxt()" runat="server" Width="130px"></asp:TextBox>
                     <asp:Label ID="Add_Brithday_Error" runat="server" ForeColor="Red"></asp:Label>
                     <br />
                     <asp:Label ID="Add_Join_Label" runat="server"></asp:Label>
-                    <asp:TextBox ID="Add_Join_Text" CssClass="Join_Text" runat="server" Width="130px"></asp:TextBox>
+                    <asp:TextBox ID="Add_Join_Text" CssClass="Join_Text" onkeyDown="return checkTxt()" runat="server" Width="130px"></asp:TextBox>
                     <asp:Label ID="Add_Join_Error" runat="server" ForeColor="Red"></asp:Label>
                     <br />
                     <asp:Label ID="Add_Skill_Label" runat="server"></asp:Label>
                     <asp:TextBox ID="Add_Skill_Text"  CssClass="Skill_Text" runat="server" Width="130px"></asp:TextBox>
                     <br />
+                    <asp:Label ID="Add_Skill_Label2" runat="server"></asp:Label>
                     <asp:TextBox ID="Add_Skill_Text2" CssClass="Skill_Text Skill_left" runat="server" Width="130px"></asp:TextBox>
                     <br />
+                    <asp:Label ID="Add_Skill_Label3" runat="server"></asp:Label>
                     <asp:TextBox ID="Add_Skill_Text3" CssClass="Skill_Text Skill_left" runat="server" Width="130px"></asp:TextBox>
                     <br />
                     <asp:Button ID="Add_Button" runat="server" Height="38px" Text="追加" Width="98px" OnClick="Add_Button_Click" ValidationGroup="Add_Error"/> 
@@ -118,8 +120,10 @@
                     <asp:Label ID="Up_Skill_Label" runat="server"></asp:Label>
                     <asp:TextBox ID="Up_Skill_Text" CssClass="Skill_Text" runat="server" Width="130px"></asp:TextBox>
                     <br />
+                    <asp:Label ID="Up_Skill_Label2" runat="server"></asp:Label>
                     <asp:TextBox ID="Up_Skill_Text2" CssClass="Skill_Text Skill_left" runat="server" Width="130px"></asp:TextBox>
                     <br />
+                    <asp:Label ID="Up_Skill_Label3" runat="server"></asp:Label>
                     <asp:TextBox ID="Up_Skill_Text3" CssClass="Skill_Text Skill_left" runat="server" Width="130px"></asp:TextBox>
                     <br />
                     <asp:Button ID="Up_Button" runat="server" Height="38px" Text="更新" Width="98px" OnClick="Up_Button_Click" ClientIDMode="Inherit"/>

@@ -15,7 +15,7 @@ namespace EmployeeManagement
         //定数
         #region
         //入力項目表示用
-        public const String ADD_TITLE = "追加情報";
+        public const String ADD_TITLE = "登録情報";
         public const String UP_TITLE = "更新情報";
         public const String DEL_TITLE = "削除情報";
 
@@ -26,6 +26,8 @@ namespace EmployeeManagement
         public const String EMP_JOIN = "入社年月日";
         public const String EMP_CON = "勤続年月";
         public const String EMP_SKILL = "得意スキル";
+        public const String EMP_SKILL_2nd = "得意スキル2";
+        public const String EMP_SKILL_3rd = "得意スキル3";
         public const String EMP_RETIREMENT = "退職年月日";
         public const String EMP_ENGINEER_COUNT = "技術者数：";
         public const String EMP_RETIREE_COUNT = "退職者数:";
@@ -119,12 +121,16 @@ namespace EmployeeManagement
             Add_Brithday_Label.Text = EMP_BRITHDAY;
             Add_Join_Label.Text = EMP_JOIN;
             Add_Skill_Label.Text = EMP_SKILL;
+            Add_Skill_Label2.Text = EMP_SKILL_2nd;
+            Add_Skill_Label3.Text = EMP_SKILL_3rd;
 
             //更新
             Up_Name_Label.Text = EMP_NAME;
             Up_Brithday_Label.Text = EMP_BRITHDAY;
             Up_Join_Label.Text = EMP_JOIN;
             Up_Skill_Label.Text = EMP_SKILL;
+            Up_Skill_Label2.Text = EMP_SKILL_2nd;
+            Up_Skill_Label3.Text = EMP_SKILL_3rd;
 
             //削除
             Del_Number_Label.Text = EMP_NUMBER;
@@ -212,7 +218,7 @@ namespace EmployeeManagement
                 else if (DateTime.Parse(Add_Brithday_Text.Text) < DateTime.Parse(MIN_BRITHDAY_DATE))
                 {
                     //過去の閾値を下回ったとき
-                    Add_Join_Error.Text = PAST_BRITHDAY_ERROR;
+                    Add_Brithday_Error.Text = PAST_BRITHDAY_ERROR;
                     error_flg = true;
                 }
 

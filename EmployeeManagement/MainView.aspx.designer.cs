@@ -202,6 +202,15 @@ namespace EmployeeManagement {
         protected global::System.Web.UI.WebControls.TextBox Add_Skill_Text;
         
         /// <summary>
+        /// Add_Skill_Label2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Add_Skill_Label2;
+        
+        /// <summary>
         /// Add_Skill_Text2 コントロール。
         /// </summary>
         /// <remarks>
@@ -209,6 +218,15 @@ namespace EmployeeManagement {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Add_Skill_Text2;
+        
+        /// <summary>
+        /// Add_Skill_Label3 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Add_Skill_Label3;
         
         /// <summary>
         /// Add_Skill_Text3 コントロール。
@@ -355,6 +373,15 @@ namespace EmployeeManagement {
         protected global::System.Web.UI.WebControls.TextBox Up_Skill_Text;
         
         /// <summary>
+        /// Up_Skill_Label2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Up_Skill_Label2;
+        
+        /// <summary>
         /// Up_Skill_Text2 コントロール。
         /// </summary>
         /// <remarks>
@@ -362,6 +389,15 @@ namespace EmployeeManagement {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Up_Skill_Text2;
+        
+        /// <summary>
+        /// Up_Skill_Label3 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Up_Skill_Label3;
         
         /// <summary>
         /// Up_Skill_Text3 コントロール。

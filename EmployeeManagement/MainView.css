@@ -8,23 +8,23 @@
 }
 
 .Name_Text{
-    margin-left:36px;
+    margin-left:38px;
 }
 
 .Brithday_Text{
-    margin-left:20px;
+    margin-left:22px;
 }
 
 .Join_Text{
-    margin-left:4px;
-}
-
-.Skill_Text{
     margin-left:6px;
 }
 
+.Skill_Text{
+    margin-left:8px;
+}
+
 .Skill_left{
-     margin-left:89px;
+     margin-left:0px;
 }
 
 .Freezing{
